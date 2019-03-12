@@ -1,0 +1,27 @@
+#include "ap_int.h"
+const int INPUT_HEIGHT=48;
+const int INPUT_WIDTH=48;
+const int NO_OF_CHANNELS=3;
+const int KERNEL_SIZE=3;
+const int NO_OF_FILTERS=4;
+const int FC_OUT=64;
+const int FC_IN=128;
+const int K=3;
+typedef ap_fixed<16,6> input_datatype;
+typedef ap_int<1> output_datatype;
+typedef ap_int<1> weight;
+typedef ap_int<9> _9bit;
+typedef ap_int<1> _1bit;
+
+struct configuration{
+
+	static const unsigned int input_height;
+	static const unsigned int input_width;
+	int no_of_channels;
+	int kernel_size;
+	int output_width;
+	int output_height;
+	int no_of_filters;
+	
+
+};//layer1,layer2,layer3,layer4;

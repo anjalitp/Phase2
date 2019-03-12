@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="1sum=1sum=1sum=1sum=@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:50:39.150+0530"/>
+        <logs message="1sum=1sum=1sum=1sum=@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:49:28.313+0530"/>
+        <logs message="1sum=1sum=1sum=1sum=@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:48:58.162+0530"/>
+        <logs message="m=1sum=1sum=1sum@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:47:05.100+0530"/>
+        <logs message="-32sum=4sum=4sum@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:45:41.222+0530"/>
+        <logs message="-32sum=4sum=4sum@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:44:21.992+0530"/>
+        <logs message="=13sum=-24sum=-24sum@E Simulation failed: SIGSEGV." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:40:38.788+0530"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="CRITICAL WARNING: [HLS 200-70] Synthesizability check failed." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:37:45.333+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SYNCHK 200-61] Phase2_final/.apc/layers.h:70: unsupported memory access on variable 'output.V' which is (or contains) an array with unknown size at compile time." projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:37:45.329+0530" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:51:14.454+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:50:00.109+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:49:27.550+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:47:32.048+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:46:04.813+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:44:43.806+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] 'csim_design' failed: compilation error(s).&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:43:17.884+0530" type="Warning"/>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim failed with errors.&#xA;4&#xA;    while executing&#xA;&quot;source /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/nrs/Phase2_final/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="Phase2_final" solutionName="solution1" date="2019-03-12T16:40:51.321+0530" type="Warning"/>
+      </csimLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

@@ -1,0 +1,259 @@
+//#include"common.h"
+#include"dtype.h"
+#include<iostream>
+int hamming_weight[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+int find_hammingweight(int value)
+{
+	    int sum=0;
+	  //  cout<<"First four bits"<<hamming_weight[value&0xF]<<"Middle one bit"<<hamming_weight[(value>>4)&1];
+	  //  cout<<"last 4 bits"<<hamming_weight[value>>1];
+	    while(value>1)
+	    {
+	      sum=hamming_weight[value&0xF]+sum;
+	      //cout<<(value&0xF)<<"value"<<endl;
+	      value=value>>4;
+	  //    cout<<sum<<" ";
+	    //  cout<<"value"<<value;
+	    }
+	    sum+=value;
+	   //cout<<sum;
+return sum;
+}
+
+input_datatype findsum(input_datatype x ,input_datatype y)
+{
+	return x+y;
+}
+input_datatype finddiff(input_datatype x ,input_datatype  y)
+{
+	return x-y;
+}
+
+
+
+template <class data,class res,typename config>
+void Convolution(data input1[config::input_height][config::input_width][config::no_of_channels],
+		res output[config::size_of_output],float weight[config::size_of_weight])
+{
+	
+	//Converting data to  1 D
+	data input[config::input_height*config::input_width];
+	for(int i=0;i<config::input_height;++i)					//height of the input
+		for(int j=0;j<config::input_width;++j)				//width of the input
+			for(int c=0;c<config::no_of_channels;++c)			//no of channels
+			 input[i*config::input_width+j*config::no_of_channels+c]=input1[i][j][c];
+
+
+	long int index=0;
+	
+	for(int i=0;i<config::input_height-2;++i){				  //Total no of the vertical traversal
+		for(int j=0;j<config::input_width-2;++j){			//Total number of horizontal traversal
+		 for(int t=0;t<config::no_of_filters;++t){			//No of filters
+			for(int c=0;c<config::no_of_channels;++c){
+				input_datatype sum=0;
+	     				for(int ki=0;ki<config::kernel_size;++ki){	//Kernel
+
+					       int kj=0;
+
+						while(kj<config::kernel_size)	//kernel
+					       {
+						  
+						 if(weight[ki*3*3*32+kj*3*32+c*32+t]==1)
+						{
+							 sum=findsum(sum,(input[i*48*3+j*3+c]));//weight[NO_OF_FILTERS*t+ki*K+kj];
+					 	//std::cout<<"input="<<input[i*48*3+j*3+c];
+						}
+					 	else if(weight[config::no_of_filters*t+ki*config::kernel_size+kj]==0)
+							sum=findsum(sum,(input[i*48*3+j*3+c]));//weight[NO_OF_FILTERS*t+ki*K+kj];
+						 
+						 ++kj;
+					       }
+					}
+++index;
+				//if(index<70)
+				sum=sum>1?1:0;
+				output[index]=sum;
+				index=index+1;
+				if(sum!=0)
+				std::cout<<"sum="<<sum;
+			}
+		}
+	}
+	
+	}
+
+std::cout<<"Index="<<index<<std::endl;
+}
+
+
+
+
+
+template <class data,class res,typename config>
+void BinaryConvolution(data input1[config::input_height][config::input_width][config::no_of_channels],
+		res output[config::size_of_output],float weight[config::size_of_weight])
+{
+	
+	//Converting data to  1 D
+	data input[config::input_height*config::input_width];
+	for(int i=0;i<config::input_height;++i)					//height of the input
+		for(int j=0;j<config::input_width;++j)				//width of the input
+			for(int c=0;c<config::no_of_channels;++c)			//no of channels
+			 input[i*config::input_width+j*config::no_of_channels+c]=input1[i][j][c];
+
+
+	long int index=0;
+	
+	for(int i=0;i<config::input_height-2;++i){				  //Total no of the vertical traversal
+		for(int j=0;j<config::input_width-2;++j){			//Total number of horizontal traversal
+		 for(int t=0;t<config::no_of_filters;++t){			//No of filters
+			for(int c=0;c<config::no_of_channels;++c){
+				_9bit sum=0;
+	     				for(int ki=0;ki<config::kernel_size;++ki){	//Kernel
+
+					       int kj=0;
+
+						while(kj<config::kernel_size)	//kernel
+					       {
+						  
+
+						_1bit temp=weight[ki*config::kernel_size*config::no_of_channels*config::no_of_filters+	config::kernel_size*config::no_of_channels*config::no_of_filtersc*config::no_of_filters+kj] ^ input[i*config::input_width*config::no_of_channels+j*config::no_of_channels+c];
+						sum=sutemp;
+						sum=sum<<1;
+
+						 
+						 ++kj;
+					       }
+					}
+				//++index;
+				//if(index<70)
+				sum=find_hammingweight(sum);
+				output[index]=sum;
+				index=index+1;
+				if(sum!=0)
+				std::cout<<"sum="<<sum;
+			}
+		}
+	}
+	
+	}
+
+std::cout<<"Index="<<index<<std::endl;
+}
+
+
+template<class data_T, int input_h, int input_w, int input_ch>
+    void flatten(
+        data_T    data[input_h][input_w][input_ch], 
+	data_T     res[input_h*input_w*input*ch])
+{
+    for(int i=0; i<input_h; i++){
+      for(int j=0; j<input_w; j++){
+        for(int k=0; k<input_c; k++){
+            res[i*input_h*input_w+j*input_ch+k] = data[i][j][k];
+        }
+      }
+    }
+}
+
+
+
+
+
+template <class data,class res,typename config>
+void FullyConnected(data input1[config::input_length],
+		res output[config::output_length],float weight[config::input_length*config::output_length])
+{
+	
+	
+	for(int i=0;i<config:output_length;++i)
+	{
+		_9bit temp=0;
+		int sum=0;
+		
+		for(int j=0;j<config::input_length;++j)
+			{
+			
+				temp=temp|(input[j]^weight[i*config::input_length+j]);
+				temp=temp<<1;
+				if(index & 512==1)
+				{
+					sum+=find_hammingweight(temp);
+					temp=0;
+
+				}
+				
+
+
+			}
+	}
+
+
+}
+
+
+
+
+
+
+	/*
+void Binary_Convolution(input_datatype input[INPUT_WIDTH],output[OUTPUT_LAYER1],weight)
+{
+	int index=0;
+	input:for(int i=0;i<OUTPUT_LAYER1_WIDTH;++i){
+		for(int j=0;j<OUTPUT_LAYER1_HEIGHT;++j){
+	filter:	 for(int t=0;t<3;++t){
+			_9bit sum=0;
+	kernel:	     	for(int ki=0;ki<KERNEL_SIZE;++ki){
+			       int kj=0;
+
+				while(kj<KERNEL_SIZE)
+			       {
+				
+				_1bit temp=input_G[(i+ki)*INPUT_WIDTH+j+kj]^weight[NO_OF_FILTERS*t+ki*K+kj];
+				sum=sum|1;
+				sum=sum<<1;				 
+				 ++kj;
+			       }
+			}
+			output[index++]=hamming_weight(sum);
+
+		}
+	}
+	
+
+}
+
+
+void Fully_Connected_Layer(int *input,int* weight,int *output)
+{
+  int index=-1;
+
+  for(int i=0;i<FC_OUT;++i)
+  { output[++index]=0;
+    int sum=0;
+    for(int j=0;j<FC_IN;++j)
+     {
+        sum=input[i]^weight[i*FX_+j];
+        if(sum==1)
+        sum=sum<<1;
+        //cout<<sum<<endl;
+
+     }
+    // cout<<find_hammingweight(sum)<<" ";
+     output[index]+=find_hammingweight(sum);
+  //  cout<<output[index]<<endl;
+
+  }
+
+}
+
+void batchNormalization()
+{
+
+
+
+
+
+}
+*/

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="top.cpp" path="/home/nrs/Phase2_final/.apc/top.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="test1.cpp" path="/home/nrs/Phase2_final/solution1/test1.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
